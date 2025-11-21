@@ -12,7 +12,7 @@ export default function Home() {
             <span className="font-bold text-xl text-text-primary">CoFounderX</span>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/dashboard" className="btn-secondary">
+            <Link href="/signin" className="btn-secondary">
               Sign In
             </Link>
             <Link href="/dashboard" className="btn-primary">

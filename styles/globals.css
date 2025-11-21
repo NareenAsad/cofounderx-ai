@@ -4,24 +4,29 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
+  --font-size: 16px;
+  --background: #ffffff;
   --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
+  --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
+  --primary: #030213;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
   --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -31,7 +36,7 @@
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: #030213;
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
@@ -59,6 +64,8 @@
   --border: oklch(0.269 0 0);
   --input: oklch(0.269 0 0);
   --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -74,9 +81,7 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
-@theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -95,6 +100,8 @@
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
   --color-ring: var(--ring);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -115,11 +122,403 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@layer base {
+/* @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+} */
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Custom Auth Styles */
+@layer components {
+  .auth-container {
+    @apply min-h-screen flex items-center justify-center p-4;
+    background: #f9fafb;
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  .dark .auth-container {
+    background: #1f2937;
+  }
+
+  .auth-card {
+    @apply w-full bg-white rounded-2xl p-8 shadow-lg;
+    max-width: 400px;
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .dark .auth-card {
+    background: #374151;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+  }
+
+  .auth-header {
+    @apply mb-8 text-center;
+  }
+
+  .auth-title {
+    @apply mb-2;
+    color: #111827;
+  }
+
+  .dark .auth-title {
+    color: #f9fafb;
+  }
+
+  .auth-subtitle {
+    color: #6b7280;
+  }
+
+  .dark .auth-subtitle {
+    color: #9ca3af;
+  }
+
+  .auth-form {
+    @apply space-y-5;
+  }
+
+  .form-field {
+    @apply space-y-2;
+  }
+
+  .form-label {
+    @apply block;
+    color: #374151;
+  }
+
+  .dark .form-label {
+    color: #e5e7eb;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 rounded-xl border transition-all duration-200;
+    background: #f9fafb;
+    border-color: #e5e7eb;
+    color: #111827;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: #1d4ed8;
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+  }
+
+  .dark .form-input {
+    background: #1f2937;
+    border-color: #4b5563;
+    color: #f9fafb;
+  }
+
+  .dark .form-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  }
+
+  .form-input::placeholder {
+    color: #9ca3af;
+  }
+
+  .dark .form-input::placeholder {
+    color: #6b7280;
+  }
+
+  .password-input-wrapper {
+    @apply relative;
+  }
+
+  .password-input {
+    @apply pr-12;
+  }
+
+  .password-toggle {
+    @apply absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-md transition-all duration-200;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #6b7280;
+  }
+
+  .password-toggle:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #374151;
+  }
+
+  .password-toggle:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  .dark .password-toggle {
+    color: #9ca3af;
+  }
+
+  .dark .password-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e5e7eb;
+  }
+
+  .btn-primary {
+    @apply w-full py-3 rounded-xl transition-all duration-200;
+    background: #1d4ed8;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background: #1e40af;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .btn-primary:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .auth-footer {
+    @apply mt-6 text-center;
+  }
+
+  .footer-text {
+    color: #6b7280;
+  }
+
+  .dark .footer-text {
+    color: #9ca3af;
+  }
+
+  .link-button {
+    @apply transition-all duration-200;
+    color: #2563eb;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .link-button:hover {
+    text-decoration: underline;
+    color: #1d4ed8;
+  }
+
+  .dark .link-button {
+    color: #60a5fa;
+  }
+
+  .dark .link-button:hover {
+    color: #3b82f6;
+  }
+
+  .error-message {
+    @apply px-4 py-2 rounded-lg;
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+
+  .dark .error-message {
+    background: #7f1d1d;
+    color: #fecaca;
+    border-color: #991b1b;
+  }
+
+  .theme-toggle {
+    @apply fixed top-6 right-6 p-3 rounded-full transition-all duration-200;
+    background: white;
+    color: #111827;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .theme-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .theme-toggle:active {
+    transform: scale(0.95);
+  }
+
+  .dark .theme-toggle {
+    background: #374151;
+    color: #f9fafb;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Dashboard Styles */
+  .dashboard-container {
+    @apply min-h-screen flex items-center justify-center p-4;
+    background: #f9fafb;
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  .dark .dashboard-container {
+    background: #1f2937;
+  }
+
+  .dashboard-content {
+    @apply w-full max-w-2xl;
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .dashboard-header {
+    @apply text-center mb-8;
+  }
+
+  .dashboard-title {
+    @apply mb-2;
+    color: #111827;
+  }
+
+  .dark .dashboard-title {
+    color: #f9fafb;
+  }
+
+  .dashboard-subtitle {
+    color: #6b7280;
+  }
+
+  .dark .dashboard-subtitle {
+    color: #9ca3af;
+  }
+
+  .dashboard-card {
+    @apply bg-white rounded-2xl p-12 shadow-lg text-center mb-8;
+  }
+
+  .dark .dashboard-card {
+    background: #374151;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+  }
+
+  .dashboard-icon {
+    @apply flex justify-center mb-6;
+  }
+
+  .dashboard-card-title {
+    @apply mb-3;
+    color: #111827;
+  }
+
+  .dark .dashboard-card-title {
+    color: #f9fafb;
+  }
+
+  .dashboard-card-text {
+    color: #6b7280;
+  }
+
+  .dark .dashboard-card-text {
+    color: #9ca3af;
+  }
+
+  .btn-secondary {
+    @apply flex items-center justify-center mx-auto px-6 py-3 rounded-xl transition-all duration-200;
+    background: #6b7280;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    background: #4b5563;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .btn-secondary:active {
+    transform: scale(0.98);
+  }
+
+  .dark .btn-secondary {
+    background: #9ca3af;
+    color: #1f2937;
+  }
+
+  .dark .btn-secondary:hover {
+    background: #d1d5db;
   }
 }

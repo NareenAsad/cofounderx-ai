@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Plus, MoreVertical, Play, Share2 } from "lucide-react"
 import Sidebar from "@/components/dashboard/sidebar"
 import Header from "@/components/dashboard/header"
+import '../../styles/globals.css'
 
 interface Workspace {
   id: string
@@ -71,7 +72,7 @@ export default function Dashboard() {
                 <h1 className="text-3xl font-bold text-text-primary mb-2">Your Workspaces</h1>
                 <p className="text-text-secondary">Manage and create your startup projects</p>
               </div>
-              <Link href="/dashboard/workspace" className="btn-primary inline-flex items-center gap-2">
+              <Link href="/dashboard/workspace" className="btn-primary inline-flex justify-center items-center gap-2">
                 <Plus className="w-5 h-5" />
                 New Workspace
               </Link>

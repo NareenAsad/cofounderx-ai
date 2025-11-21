@@ -1,6 +1,10 @@
 {
+  "/dashboard/branding/page": "app/dashboard/branding/page.js",
   "/dashboard/collaboration/page": "app/dashboard/collaboration/page.js",
   "/dashboard/page": "app/dashboard/page.js",
+  "/dashboard/workspace/[id]/page": "app/dashboard/workspace/[id]/page.js",
   "/dashboard/workspace/page": "app/dashboard/workspace/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/signin/page": "app/signin/page.js",
+  "/signup/page": "app/signup/page.js"
 }

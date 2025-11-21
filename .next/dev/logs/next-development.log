@@ -1,28 +1,2083 @@
-[00:00:01.719] Server  LOG     
-[00:00:01.720] Server  LOG        We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
-[00:00:01.721] Server  LOG        The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+[00:00:02.786] Server  LOG      ✓ Ready in 1514ms
+[00:00:07.842] Server  LOG      ○ Compiling / ...
+[00:00:13.050] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:13.494] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
-[00:00:01.722] Server  LOG        	- include was updated to add '.next/dev/types/**/*.ts'
-[00:00:01.722] Server  LOG     
-[00:00:01.722] Server  LOG        The following mandatory changes were made to your tsconfig.json:
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
 
-[00:00:01.723] Server  LOG        	- jsx was set to react-jsx (next.js uses the React automatic runtime)
-[00:00:01.723] Server  LOG     
-[00:00:02.237] Server  LOG      ✓ Ready in 1546ms
-[00:00:16.866] Server  LOG      ○ Compiling / ...
-[00:00:22.914] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:24.086] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:24.086] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:24.086] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763719111830}
-[00:01:02.292] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763719150599}
-[00:01:08.118] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/workspace color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/workspace","o":"http://localhost:3000/dashboard/workspace","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763719156430}
-[00:01:10.951] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/collaboration color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/collaboration","o":"http://localhost:3000/dashboard/collaboration","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763719159267}
-[00:01:24.047] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/workspace color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/workspace","o":"http://localhost:3000/dashboard/workspace","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763719172362}
-[00:01:25.378] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763719173681}
-[00:08:48.706] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/workspace color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/workspace","o":"http://localhost:3000/dashboard/workspace","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763719617015}
-[00:09:00.669] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763719628980}
-[00:10:29.021] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:10:29.281] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:10:29.281] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:10:29.281] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763719717591}
-[00:10:31.659] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763719719959}
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <body
+                            className="font-sans antialiased dark"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:00:14.533] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:14.533] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:14.533] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763734457374}
+[00:00:16.960] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763734459794}
+[00:00:20.570] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763734463403}
+[00:00:23.218] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763734466054}
+[00:00:24.595] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763734467434}
+[00:00:31.849] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763734474687}
+[00:01:04.002] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763734506827}
+[00:01:05.560] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763734508390}
+[00:01:07.026] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763734509864}
+[00:02:41.010] Server  ERROR    ⨯ ./app/signin/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 |
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+
+./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signin/page.tsx
+
+
+[00:02:41.175] Browser ERROR   ./app/signin/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 |
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:02:41.176] Browser ERROR   ./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signin/page.tsx
+[00:02:42.309] Browser ERROR   ./app/signin/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 |
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:02:42.309] Browser ERROR   ./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signin/page.tsx
+[00:02:42.450] Browser ERROR   ./app/signin/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 |
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:02:42.450] Browser ERROR   ./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signin/page.tsx
+[00:02:43.354] Server  ERROR    ⨯ ./app/signin/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 |
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+
+./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signin/page.tsx
+
+
+[00:02:43.943] Browser ERROR   uncaughtError: Error: ./app/signin/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 |
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+[00:02:44.162] Browser ERROR   ./app/signin/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 |
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:02:44.162] Browser ERROR   ./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signin/page.tsx
+[00:02:44.415] Server  ERROR    ⨯ ./app/signin/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 |
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+
+./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signin/page.tsx
+
+
+[00:02:44.514] Browser ERROR   ./app/signin/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 |
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:02:44.514] Browser ERROR   ./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signin/page.tsx
+[00:02:44.618] Browser ERROR   ./app/signin/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 |
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:02:44.618] Browser ERROR   ./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signin/page.tsx
+[00:03:09.320] Browser ERROR   ./app/signin/page.tsx:2:10
+Ecmascript file had an error
+  1 |
+> 2 | import { useState } from 'react';
+    |          ^^^^^^^^
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+  5 |
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:03:09.320] Browser ERROR   ./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signin/page.tsx
+[00:03:15.829] Server  LOG      ✓ Compiled in 163ms
+[00:03:16.565] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.596] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\.next\dev\server\chunks\ssr\node_modules_next_dist_09906e51._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.629] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.634] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.648] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.651] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.653] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.660] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.662] Server  ERROR    ⨯ Error: The default export is not a React Component in "/signin/page"
+[00:03:16.678] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.682] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\.next\dev\server\chunks\ssr\node_modules_next_dist_09906e51._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.685] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.690] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.700] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.702] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.714] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.717] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:16.728] Server  ERROR    ⨯ Error: The default export is not a React Component in "/signin/page"
+[00:03:17.357] Browser ERROR   uncaughtError: Error: The default export is not a React Component in "/signin/page"
+[00:03:18.064] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.065] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\.next\dev\server\chunks\ssr\node_modules_next_dist_09906e51._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.066] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.067] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.067] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.068] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.069] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.080] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.083] Server  ERROR    ⨯ Error: The default export is not a React Component in "/signin/page"
+[00:03:18.125] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.127] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\.next\dev\server\chunks\ssr\node_modules_next_dist_09906e51._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.163] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.164] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.166] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.167] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.167] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.168] Server  ERROR   C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:18.169] Server  ERROR    ⨯ Error: The default export is not a React Component in "/signin/page"
+[00:05:23.031] Server  LOG      ✓ Compiled in 184ms
+[00:05:26.351] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:26.623] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/signin" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <body
+                            className="font-sans antialiased dark"
+-                           data-new-gr-c-s-check-loaded="14.1264.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+
+[00:05:26.850] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:05:26.851] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/signin","route":"/signin"}
+[00:05:26.851] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/signin color: rgb(120, 120, 120) color: inherit {"dp":"/signin","o":"http://localhost:3000/signin","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763734769685}
+[00:05:28.686] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:29.139] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:05:29.139] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/signin","route":"/signin"}
+[00:05:29.139] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/signin color: rgb(120, 120, 120) color: inherit {"dp":"/signin","o":"http://localhost:3000/signin","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763734771956}
+[00:06:09.729] Browser ERROR   ./app/dashboard/page.tsx:10:1
+Parsing ecmascript source code failed
+   8 | import 
+   9 |
+> 10 | interface Workspace {
+     | ^^^^^^^^^
+  11 |   id: string
+  12 |   name: string
+  13 |   idea: string
+
+Expected 'from', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+[00:06:12.205] Server  ERROR    ⨯ ./app/dashboard/page.tsx:8:1
+Module not found: Can't resolve './'
+   6 | import Sidebar from "@/components/dashboard/sidebar"
+   7 | import Header from "@/components/dashboard/header"
+>  8 | import './'
+     | ^^^^^^^^^^^
+   9 |
+  10 | interface Workspace {
+  11 |   id: string
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:06:12.273] Server  ERROR    ⨯ ./app/dashboard/page.tsx:8:1
+Module not found: Can't resolve './'
+   6 | import Sidebar from "@/components/dashboard/sidebar"
+   7 | import Header from "@/components/dashboard/header"
+>  8 | import './'
+     | ^^^^^^^^^^^
+   9 |
+  10 | interface Workspace {
+  11 |   id: string
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:06:13.330] Browser ERROR   ./app/dashboard/page.tsx:8:1
+Module not found: Can't resolve './'
+   6 | import Sidebar from "@/components/dashboard/sidebar"
+   7 | import Header from "@/components/dashboard/header"
+>  8 | import './'
+     | ^^^^^^^^^^^
+   9 |
+  10 | interface Workspace {
+  11 |   id: string
+
+Import traces:
+  Client Component Browser:
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:06:18.365] Server  ERROR    ⨯ ./app/dashboard/page.tsx:8:1
+Module not found: Can't resolve '../'
+   6 | import Sidebar from "@/components/dashboard/sidebar"
+   7 | import Header from "@/components/dashboard/header"
+>  8 | import '../'
+     | ^^^^^^^^^^^^
+   9 |
+  10 | interface Workspace {
+  11 |   id: string
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:06:18.374] Server  ERROR    ⨯ ./app/dashboard/page.tsx:8:1
+Module not found: Can't resolve '../'
+   6 | import Sidebar from "@/components/dashboard/sidebar"
+   7 | import Header from "@/components/dashboard/header"
+>  8 | import '../'
+     | ^^^^^^^^^^^^
+   9 |
+  10 | interface Workspace {
+  11 |   id: string
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:06:19.825] Browser ERROR   ./app/dashboard/page.tsx:8:1
+Module not found: Can't resolve '../'
+   6 | import Sidebar from "@/components/dashboard/sidebar"
+   7 | import Header from "@/components/dashboard/header"
+>  8 | import '../'
+     | ^^^^^^^^^^^^
+   9 |
+  10 | interface Workspace {
+  11 |   id: string
+
+Import traces:
+  Client Component Browser:
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:06:20.134] Server  ERROR    ⨯ ./app/dashboard/page.tsx:8:1
+Module not found: Can't resolve '../s'
+   6 | import Sidebar from "@/components/dashboard/sidebar"
+   7 | import Header from "@/components/dashboard/header"
+>  8 | import '../s'
+     | ^^^^^^^^^^^^^
+   9 |
+  10 | interface Workspace {
+  11 |   id: string
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:06:20.145] Server  ERROR    ⨯ ./app/dashboard/page.tsx:8:1
+Module not found: Can't resolve '../s'
+   6 | import Sidebar from "@/components/dashboard/sidebar"
+   7 | import Header from "@/components/dashboard/header"
+>  8 | import '../s'
+     | ^^^^^^^^^^^^^
+   9 |
+  10 | interface Workspace {
+  11 |   id: string
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:06:20.351] Browser ERROR   ./app/dashboard/page.tsx:8:1
+Module not found: Can't resolve '../s'
+   6 | import Sidebar from "@/components/dashboard/sidebar"
+   7 | import Header from "@/components/dashboard/header"
+>  8 | import '../s'
+     | ^^^^^^^^^^^^^
+   9 |
+  10 | interface Workspace {
+  11 |   id: string
+
+Import traces:
+  Client Component Browser:
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:06:22.360] Server  ERROR    ⨯ ./app/dashboard/page.tsx:8:1
+Module not found: Can't resolve '../../'
+   6 | import Sidebar from "@/components/dashboard/sidebar"
+   7 | import Header from "@/components/dashboard/header"
+>  8 | import '../../'
+     | ^^^^^^^^^^^^^^^
+   9 |
+  10 | interface Workspace {
+  11 |   id: string
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:06:22.371] Server  ERROR    ⨯ ./app/dashboard/page.tsx:8:1
+Module not found: Can't resolve '../../'
+   6 | import Sidebar from "@/components/dashboard/sidebar"
+   7 | import Header from "@/components/dashboard/header"
+>  8 | import '../../'
+     | ^^^^^^^^^^^^^^^
+   9 |
+  10 | interface Workspace {
+  11 |   id: string
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:06:23.506] Browser ERROR   ./app/dashboard/page.tsx:8:1
+Module not found: Can't resolve '../../'
+   6 | import Sidebar from "@/components/dashboard/sidebar"
+   7 | import Header from "@/components/dashboard/header"
+>  8 | import '../../'
+     | ^^^^^^^^^^^^^^^
+   9 |
+  10 | interface Workspace {
+  11 |   id: string
+
+Import traces:
+  Client Component Browser:
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:06:27.333] Browser ERROR   ./styles/globals.css
+Error evaluating Node.js code
+CssSyntaxError: tailwindcss: C:\Users\SAMI ULLAH\cofounderx-ai\styles\globals.css:1:1: Cannot apply unknown utility class `border-border`
+    [at Input.error (turbopack:///[project]/node_modules/postcss/lib/input.js:135:16)]
+    [at Root.error (turbopack:///[project]/node_modules/postcss/lib/node.js:146:32)]
+    [at Object.Once (C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\@tailwindcss\postcss\dist\index.js:10:6912)]
+    [at async LazyResult.runAsync (turbopack:///[project]/node_modules/postcss/lib/lazy-result.js:293:11)]
+    [at async transform (turbopack:///[turbopack-node]/transforms/postcss.ts:70:34)]
+    [at async run (turbopack:///[turbopack-node]/ipc/evaluate.ts:92:23)]
+
+Import trace:
+  Client Component Browser:
+    ./styles/globals.css [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+[00:06:27.333] Browser ERROR   ./styles/globals.css
+Error evaluating Node.js code
+CssSyntaxError: tailwindcss: C:\Users\SAMI ULLAH\cofounderx-ai\styles\globals.css:1:1: Cannot apply unknown utility class `border-border`
+    [at Input.error (turbopack:///[project]/node_modules/postcss/lib/input.js:135:16)]
+    [at Root.error (turbopack:///[project]/node_modules/postcss/lib/node.js:146:32)]
+    [at Object.Once (C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\@tailwindcss\postcss\dist\index.js:10:6912)]
+    [at async LazyResult.runAsync (turbopack:///[project]/node_modules/postcss/lib/lazy-result.js:293:11)]
+    [at async transform (turbopack:///[turbopack-node]/transforms/postcss.ts:70:34)]
+    [at async run (turbopack:///[turbopack-node]/ipc/evaluate.ts:92:23)]
+
+Import trace:
+  Client Component Browser:
+    ./styles/globals.css [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+[00:06:54.324] Browser ERROR   ./styles/globals.css
+Error evaluating Node.js code
+CssSyntaxError: tailwindcss: C:\Users\SAMI ULLAH\cofounderx-ai\styles\globals.css:1:1: Cannot apply unknown utility class `outline-ring/50`
+    [at Input.error (turbopack:///[project]/node_modules/postcss/lib/input.js:135:16)]
+    [at Root.error (turbopack:///[project]/node_modules/postcss/lib/node.js:146:32)]
+    [at Object.Once (C:\Users\SAMI ULLAH\cofounderx-ai\node_modules\@tailwindcss\postcss\dist\index.js:10:6912)]
+    [at async LazyResult.runAsync (turbopack:///[project]/node_modules/postcss/lib/lazy-result.js:293:11)]
+    [at async transform (turbopack:///[turbopack-node]/transforms/postcss.ts:70:34)]
+    [at async run (turbopack:///[turbopack-node]/ipc/evaluate.ts:92:23)]
+
+Import trace:
+  Client Component Browser:
+    ./styles/globals.css [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+[00:07:06.101] Server  LOG      ✓ Compiled in 546ms
+[00:07:10.284] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:10.644] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:07:10.644] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/signin","route":"/signin"}
+[00:07:10.644] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/signin color: rgb(120, 120, 120) color: inherit {"dp":"/signin","o":"http://localhost:3000/signin","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763734873485}
+[00:08:26.199] Server  LOG      ✓ Compiled in 827ms
+[00:08:27.437] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve './'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import './'
+    | ^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:27.457] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve './'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import './'
+    | ^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:27.496] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve './'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import './'
+    | ^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:27.537] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve './'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import './'
+    | ^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:27.577] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve './'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import './'
+    | ^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:27.644] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve './'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import './'
+    | ^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:27.663] Server  LOG      ✓ Compiled in 374ms
+[00:08:28.751] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '.'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '.'
+    | ^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:28.819] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '.'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '.'
+    | ^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:28.855] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '.'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '.'
+    | ^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:28.890] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '.'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '.'
+    | ^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:28.915] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '.'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '.'
+    | ^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:28.946] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '.'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '.'
+    | ^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:28.963] Server  LOG      ✓ Compiled in 369ms
+[00:08:31.466] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../gl'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../gl'
+    | ^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:31.496] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../gl'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../gl'
+    | ^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:31.504] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../gl'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../gl'
+    | ^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:31.517] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../gl'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../gl'
+    | ^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:31.541] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../gl'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../gl'
+    | ^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:31.568] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../gl'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../gl'
+    | ^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:08:31.575] Server  LOG      ✓ Compiled in 307ms
+[00:08:33.136] Server  LOG      ✓ Compiled in 303ms
+[00:08:34.664] Browser ERROR   ./app/signin/page.tsx:6:1
+Parsing ecmascript source code failed
+  4 | import { toast } from 'sonner';
+  5 | import 
+> 6 | interface LoginPageProps {
+    | ^^^^^^^^^
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+  9 | }
+
+Expected 'from', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+[00:08:34.664] Browser ERROR   ./app/signin/page.tsx:5:1
+Module not found: Can't resolve './'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import './'
+    | ^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:08:34.664] Browser ERROR   ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '.'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '.'
+    | ^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:08:34.664] Browser ERROR   ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../gl'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../gl'
+    | ^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:08:38.179] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:38.486] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/signin" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <body
+                            className="font-sans antialiased dark"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:08:38.840] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:08:38.840] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/signin","route":"/signin"}
+[00:08:38.840] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/signin color: rgb(120, 120, 120) color: inherit {"dp":"/signin","o":"http://localhost:3000/signin","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763734961629}
+[00:09:04.489] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styglobals.css'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styglobals.css'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:09:04.508] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styglobals.css'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styglobals.css'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:09:04.523] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styglobals.css'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styglobals.css'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:09:04.554] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styglobals.css'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styglobals.css'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:09:04.586] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styglobals.css'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styglobals.css'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:09:04.619] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styglobals.css'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styglobals.css'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:09:04.657] Server  LOG      ✓ Compiled in 314ms
+[00:09:05.752] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styles'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styles'
+    | ^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:09:05.765] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styles'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styles'
+    | ^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:09:05.807] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styles'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styles'
+    | ^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:09:05.873] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styles'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styles'
+    | ^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:09:05.913] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styles'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styles'
+    | ^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:09:05.992] Server  ERROR    ⨯ ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styles'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styles'
+    | ^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:09:06.003] Server  LOG      ✓ Compiled in 292ms
+[00:09:06.653] Browser ERROR   ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styglobals.css'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styglobals.css'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:09:06.653] Browser ERROR   ./app/signin/page.tsx:5:1
+Module not found: Can't resolve '../../styles'
+  3 | import { PasswordInput } from '@/components/PAsswordInput';
+  4 | import { toast } from 'sonner';
+> 5 | import '../../styles'
+    | ^^^^^^^^^^^^^^^^^^^^^
+  6 | interface LoginPageProps {
+  7 |   onNavigateToSignup: () => void;
+  8 |   onLoginSuccess: () => void;
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:09:07.362] Server  LOG      ✓ Compiled in 324ms
+[00:10:15.290] Server  LOG      ✓ Compiled in 295ms
+[00:10:17.284] Server  LOG      ✓ Compiled in 386ms
+[00:10:18.321] Browser ERROR   ./app/signin/page.tsx:81:22
+Parsing ecmascript source code failed
+  79 |
+  80 |         <div className="auth-footer">
+> 81 |           < className="footer-text">
+     |                      ^
+  82 |             Don't have an account?{' '}
+  83 |             <button
+  84 |               type="button"
+
+Expected '</', got '='
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+[00:10:18.321] Browser ERROR   ./app/signin/page.tsx:90:15
+Parsing ecmascript source code failed
+  88 |               Sign Up
+  89 |             </button>
+> 90 |           </p>
+     |               ^
+> 91 |         </div>
+     | ^^^^^^^^^
+  92 |       </div>
+  93 |     </div>
+  94 |   );
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+[00:10:21.332] Browser ERROR   ./app/signin/page.tsx:91:15
+Parsing ecmascript source code failed
+  89 |               Sign Up
+  90 |             </button>
+> 91 |           </p>
+     |               ^
+> 92 |         </div>
+     | ^^^^^^^^^
+  93 |       </div>
+  94 |     </div>
+  95 |   );
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+[00:10:26.325] Browser ERROR   ./app/signin/page.tsx:91:15
+Parsing ecmascript source code failed
+  89 |               Sign Up
+  90 |             </button>
+> 91 |           </p>
+     |               ^
+> 92 |         </div>
+     | ^^^^^^^^^
+  93 |       </div>
+  94 |     </div>
+  95 |   );
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+[00:10:29.320] Browser ERROR   ./app/signin/page.tsx:91:15
+Parsing ecmascript source code failed
+  89 |               Sign Up
+  90 |             </button>
+> 91 |           </p>
+     |               ^
+> 92 |         </div>
+     | ^^^^^^^^^
+  93 |       </div>
+  94 |     </div>
+  95 |   );
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+[00:10:30.142] Browser ERROR   ./app/signin/page.tsx:91:15
+Parsing ecmascript source code failed
+  89 |               Sign Up
+  90 |             </button>
+> 91 |           </p>
+     |               ^
+> 92 |         </div>
+     | ^^^^^^^^^
+  93 |       </div>
+  94 |     </div>
+  95 |   );
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./app/signin/page.tsx [Client Component Browser]
+    ./app/signin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/signin/page.tsx [Client Component SSR]
+    ./app/signin/page.tsx [Server Component]
+[00:10:41.398] Server  LOG      ✓ Compiled in 498ms
+[00:10:43.803] Server  ERROR    ⨯ ./app/signup/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 | import '../../styles/globals.css';
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+
+./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signup/page.tsx
+
+
+[00:10:43.957] Browser ERROR   ./app/signup/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 | import '../../styles/globals.css';
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:10:43.957] Browser ERROR   ./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signup/page.tsx
+[00:10:44.050] Server  ERROR    ⨯ ./app/signup/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 | import '../../styles/globals.css';
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+
+./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signup/page.tsx
+
+
+[00:10:44.719] Browser ERROR   uncaughtError: Error: ./app/signup/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 | import '../../styles/globals.css';
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+[00:10:44.942] Browser ERROR   ./app/signup/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 | import '../../styles/globals.css';
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:10:44.942] Browser ERROR   ./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signup/page.tsx
+[00:10:45.090] Browser ERROR   ./app/signup/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 | import '../../styles/globals.css';
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:10:45.090] Browser ERROR   ./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signup/page.tsx
+[00:10:45.356] Server  ERROR    ⨯ ./app/signup/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 | import '../../styles/globals.css';
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+
+./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signup/page.tsx
+
+
+[00:10:45.547] Browser ERROR   ./app/signup/page.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { PasswordInput } from '@/components/PAsswordInput';
+  3 | import { toast } from 'sonner';
+  4 | import '../../styles/globals.css';
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:10:45.547] Browser ERROR   ./components/PAsswordInput.tsx:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 | import { Eye, EyeOff } from 'lucide-react';
+  3 |
+  4 | interface PasswordInputProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/PAsswordInput.tsx
+    ./app/signup/page.tsx
+[00:10:55.340] Server  LOG      ✓ Compiled in 590ms
+[00:10:56.483] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:56.920] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:10:56.920] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/signup","route":"/signup"}
+[00:10:56.920] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/signup color: rgb(120, 120, 120) color: inherit {"dp":"/signup","o":"http://localhost:3000/signup","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735099752}
+[00:11:09.381] Server  LOG      ✓ Compiled in 276ms
+[00:11:10.324] Browser ERROR   uncaughtError: ReferenceError: Link is not defined
+[00:11:22.033] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:11:22.038] Server  LOG      ✓ Compiled in 574ms
+[00:11:22.266] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/signup color: rgb(120, 120, 120) color: inherit {"dp":"/signup","o":"http://localhost:3000/signup","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735124959}
+[00:11:22.977] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:23.215] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:11:23.215] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/signup","route":"/signup"}
+[00:11:23.215] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/signup color: rgb(120, 120, 120) color: inherit {"dp":"/signup","o":"http://localhost:3000/signup","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735126043}
+[00:11:25.377] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/signin color: rgb(120, 120, 120) color: inherit {"dp":"/signin","o":"http://localhost:3000/signin","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735128215}
+[00:11:26.979] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/signup color: rgb(120, 120, 120) color: inherit {"dp":"/signup","o":"http://localhost:3000/signup","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735129817}
+[00:11:28.037] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/signin color: rgb(120, 120, 120) color: inherit {"dp":"/signin","o":"http://localhost:3000/signin","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735130876}
+[00:12:42.252] Server  LOG      ✓ Compiled in 698ms
+[00:12:52.968] Server  LOG      ✓ Compiled in 273ms
+[00:13:09.954] Server  LOG      ✓ Compiled in 285ms
+[00:13:11.380] Server  LOG      ✓ Compiled in 316ms
+[00:13:22.016] Browser LOG     Login: {"email":"malihakhokhar01@gmail.com","password":"123456799"}
+[00:13:22.265] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735245101}
+[00:13:22.450] Browser ERROR   uncaughtError: TypeError: onLoginSuccess is not a function
+[00:13:28.212] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/workspace color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/workspace","o":"http://localhost:3000/dashboard/workspace","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735251044}
+[00:13:32.302] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735255135}
+[00:14:12.732] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/workspace color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/workspace","o":"http://localhost:3000/dashboard/workspace","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735295571}
+[00:14:14.376] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735297213}
+[00:14:19.123] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/workspace/1 color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/workspace/[id]","o":"http://localhost:3000/dashboard/workspace/1","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735301961}
+[00:14:21.054] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735303894}
+[00:14:36.805] Server  LOG      ✓ Compiled in 251ms
+[00:14:52.375] Server  LOG      ✓ Compiled in 618ms
+[00:14:55.219] Server  LOG      ✓ Compiled in 222ms
+[00:16:22.655] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/workspace color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/workspace","o":"http://localhost:3000/dashboard/workspace","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735425486}
+[00:16:26.401] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/collaboration color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/collaboration","o":"http://localhost:3000/dashboard/collaboration","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735429237}
+[00:16:29.177] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/branding color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/branding","o":"http://localhost:3000/dashboard/branding","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735432017}
+[00:16:38.282] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763735441121}
