@@ -1,8 +1,4 @@
 {
-  "/dashboard/branding/page": "app/dashboard/branding/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/dashboard/workspace/[id]/page": "app/dashboard/workspace/[id]/page.js",
-  "/page": "app/page.js",
-  "/signin/page": "app/signin/page.js",
-  "/signup/page": "app/signup/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/dashboard/page": "app/dashboard/page.js"
 }

@@ -289,6 +289,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$co$2d$founder$2
 var __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$co$2d$founder$2d$x$2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$share$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Share2$3e$__ = __turbopack_context__.i("[project]/Downloads/co-founder-x/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/icons/share-2.js [app-ssr] (ecmascript) <export default as Share2>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$co$2d$founder$2d$x$2f$components$2f$dashboard$2f$sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Downloads/co-founder-x/components/dashboard/sidebar.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$co$2d$founder$2d$x$2f$components$2f$dashboard$2f$header$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Downloads/co-founder-x/components/dashboard/header.tsx [app-ssr] (ecmascript)");
+(()=>{
+    const e = new Error("Cannot find module '../../styles/globals.css'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
 "use client";
 ;
 ;
