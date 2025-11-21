@@ -160,13 +160,12 @@ export default function Collaboration() {
                     <div className="flex items-center justify-between mb-2">
                       <p className="font-medium text-text-primary">{agent.name}</p>
                       <span
-                        className={`text-xs px-2 py-1 rounded ${
-                          agent.status === "active"
-                            ? "bg-success/20 text-success"
-                            : agent.status === "complete"
-                              ? "bg-accent/20 text-accent"
-                              : "bg-text-muted/20 text-text-muted"
-                        }`}
+                        className={`text-xs px-2 py-1 rounded ${agent.status === "active"
+                          ? "bg-success/20 text-success"
+                          : agent.status === "complete"
+                            ? "bg-accent/20 text-accent"
+                            : "bg-text-muted/20 text-text-muted"
+                          }`}
                       >
                         {agent.status}
                       </span>

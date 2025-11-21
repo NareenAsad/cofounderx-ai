@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { Progress } from './ui/progress';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
+import { Label } from '../ui/label';
+import { Progress } from '../ui/progress';
 import { ArrowRight, ArrowLeft, Check } from 'lucide-react';
 
 interface FormData {
@@ -118,7 +118,7 @@ export function SignUpForm() {
             </svg>
             Continue with Apple
           </Button>
-          
+
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <span className="w-full border-t" />
@@ -239,7 +239,7 @@ export function SignUpForm() {
               Back
             </Button>
           )}
-          
+
           {currentStep < totalSteps ? (
             <Button
               type="button"

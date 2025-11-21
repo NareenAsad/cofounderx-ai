@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import { PasswordInput } from '@/components/PAsswordInput';
+import { PasswordInput } from '@/components/common/passwordInput';
 import { toast } from 'sonner';
 import '../../styles/globals.css';
 import Link from 'next/link';
@@ -21,19 +21,19 @@ export default function LoginPage({ onNavigateToSignup, onLoginSuccess }: LoginP
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     console.log('Login:', { email, password });
     router.push('/dashboard');
     // Show success toast
     toast.success('Logged in successfully!', {
       duration: 2000,
     });
-    
+
     setIsLoading(false);
-    
+
     // Redirect to dashboard after a brief delay
     setTimeout(() => {
       onLoginSuccess();
@@ -73,8 +73,8 @@ export default function LoginPage({ onNavigateToSignup, onLoginSuccess }: LoginP
             required
           />
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="btn-primary"
             disabled={isLoading}
           >

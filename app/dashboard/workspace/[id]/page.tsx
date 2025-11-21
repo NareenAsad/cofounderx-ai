@@ -69,11 +69,10 @@ export default function WorkspaceDetail({ params }: { params: { id: string } }) 
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`pb-2 font-medium transition-colors ${
-                    activeTab === tab.id
-                      ? "text-accent border-b-2 border-accent"
-                      : "text-text-secondary hover:text-text-primary"
-                  }`}
+                  className={`pb-2 font-medium transition-colors ${activeTab === tab.id
+                    ? "text-accent border-b-2 border-accent"
+                    : "text-text-secondary hover:text-text-primary"
+                    }`}
                 >
                   {tab.label}
                 </button>

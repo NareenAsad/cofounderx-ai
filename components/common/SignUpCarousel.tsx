@@ -97,15 +97,14 @@ export function SignUpCarousel() {
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          
+
           <div className="flex gap-2">
             {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  currentSlide === index ? 'w-8 bg-white' : 'w-2 bg-white/40'
-                }`}
+                className={`h-2 rounded-full transition-all duration-300 ${currentSlide === index ? 'w-8 bg-white' : 'w-2 bg-white/40'
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}

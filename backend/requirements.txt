@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+groq
+pydantic
+huggingface_hub
+Pillow
+python-multipart
+supabase
+websockets
+langgraph

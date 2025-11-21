@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import { PasswordInput } from '@/components/PAsswordInput';
+import { PasswordInput } from '@/components/common/passwordInput';
 import { toast } from 'sonner';
 import '../../styles/globals.css';
 import Link from 'next/link';
@@ -18,7 +18,7 @@ export default function SignupPage({ onNavigateToLogin }: SignupPageProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    
+
     if (password !== confirmPassword) {
       setError('Passwords do not match');
       toast.error('Passwords do not match');
@@ -32,19 +32,19 @@ export default function SignupPage({ onNavigateToLogin }: SignupPageProps) {
     }
 
     setIsLoading(true);
-    
+
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     console.log('Signup:', { email, password });
-    
+
     // Show success toast
     toast.success('Account created successfully!', {
       duration: 2000,
     });
-    
+
     setIsLoading(false);
-    
+
     // Redirect to login after a brief delay
     setTimeout(() => {
       onNavigateToLogin();
@@ -99,8 +99,8 @@ export default function SignupPage({ onNavigateToLogin }: SignupPageProps) {
             </div>
           )}
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="btn-primary"
             disabled={isLoading}
           >

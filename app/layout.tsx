@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   title: "CoFounderX - AI-Powered Startup Builder",
   description:
     "Build your startup with AI co-founders. Collaborate in real-time, generate business plans, and launch faster.",
-  generator: "v0.app",
   icons: {
     icon: [
       {
