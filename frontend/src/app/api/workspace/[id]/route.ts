@@ -1,36 +1,31 @@
-import { type NextRequest, NextResponse } from "next/server"
+import { NextResponse } from "next/server";
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+export async function GET(request: Request, { params }: { params: { id: string } }) {
   try {
-    const workspace = {
-      id: params.id,
-      name: "EdTech Platform",
-      idea: "AI-powered personalized learning for K-12 students",
-      status: "active",
-      targetMarket: "K-12 educators and students",
-      businessModel: "B2C SaaS",
-      fundingGoal: "$500K",
-      createdAt: "2024-11-15",
-    }
-
-    return NextResponse.json(workspace)
+    const res = await fetch(`${API_URL}/workspace/${params.id}`);
+    if (!res.ok) throw new Error("Workspace not found");
+    const data = await res.json();
+    return NextResponse.json(data);
   } catch (error) {
-    return NextResponse.json({ error: "Workspace not found" }, { status: 404 })
+    return NextResponse.json({ error: "Workspace not found" }, { status: 404 });
   }
 }
 
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, { params }: { params: { id: string } }) {
   try {
-    const body = await request.json()
+    const body = await request.json();
+    const res = await fetch(`${API_URL}/workspace/${params.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
 
-    const updatedWorkspace = {
-      id: params.id,
-      ...body,
-      updatedAt: new Date().toISOString(),
-    }
-
-    return NextResponse.json(updatedWorkspace)
+    if (!res.ok) throw new Error("Failed to update workspace");
+    const data = await res.json();
+    return NextResponse.json(data);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to update workspace" }, { status: 400 })
+    return NextResponse.json({ error: "Failed to update workspace" }, { status: 400 });
   }
 }

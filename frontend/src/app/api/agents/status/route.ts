@@ -1,39 +1,16 @@
-import { type NextRequest, NextResponse } from "next/server"
+import { NextResponse } from "next/server";
 
-export async function GET(request: NextRequest) {
-  const workspaceId = request.nextUrl.searchParams.get("workspaceId")
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+export async function GET(request: Request) {
+  const workspaceId = new URL(request.url).searchParams.get("workspaceId");
 
   try {
-    // In production, call FastAPI to get real agent status
-    const agentStatus = {
-      workspaceId,
-      agents: [
-        {
-          name: "Product Agent",
-          status: "active",
-          progress: 75,
-          currentTask: "Designing product roadmap",
-          lastUpdate: new Date().toISOString(),
-        },
-        {
-          name: "Marketing Agent",
-          status: "active",
-          progress: 50,
-          currentTask: "Analyzing competitor strategies",
-          lastUpdate: new Date().toISOString(),
-        },
-        {
-          name: "Finance Agent",
-          status: "active",
-          progress: 30,
-          currentTask: "Building financial models",
-          lastUpdate: new Date().toISOString(),
-        },
-      ],
-    }
-
-    return NextResponse.json(agentStatus)
+    const res = await fetch(`${API_URL}/generate?workspaceId=${workspaceId}`);
+    if (!res.ok) throw new Error("Failed to fetch agent status");
+    const data = await res.json();
+    return NextResponse.json(data);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch agent status" }, { status: 500 })
+    return NextResponse.json({ error: "Failed to fetch agent status" }, { status: 500 });
   }
 }
