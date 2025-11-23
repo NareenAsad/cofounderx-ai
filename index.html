@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoFounderX - AI Startup Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
+        }
+    </script>
+</head>
+<body class="bg-[#0a0f1a] text-gray-100 min-h-screen flex">
+    
+    <!-- Mobile Menu Button -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    
+    <!-- Sidebar Overlay (mobile) -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+    
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-72 bg-[#0d1320] border-r border-gray-800 flex flex-col h-screen fixed left-0 top-0 z-20">
+        <div class="p-5 border-b border-gray-800">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-xl">🚀</div>
+                <div>
+                    <h1 class="font-bold text-lg">CoFounderX</h1>
+                    <p class="text-xs text-gray-500">AI Startup Generator</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="p-4">
+            <button onclick="newChat()" class="w-full py-3 px-4 rounded-xl border border-gray-700 hover:border-green-500 hover:bg-green-500/10 transition flex items-center gap-3 text-sm font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                New Startup
+            </button>
+        </div>
+        
+        <div class="flex-1 overflow-y-auto px-3">
+            <p class="text-xs text-gray-500 uppercase tracking-wider px-3 mb-2">History</p>
+            <div id="historyList" class="space-y-1"></div>
+        </div>
+        
+        <div class="p-4 border-t border-gray-800 text-xs text-gray-500">
+            <p>Powered by Groq + Llama 3.1</p>
+        </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="flex-1 ml-72 flex flex-col h-screen">
+        
+        <!-- Top Bar -->
+        <header id="topBar" class="hidden glass border-b border-gray-800 px-6 py-3 sticky top-0 z-10">
+            <div class="flex items-center gap-2 justify-center flex-wrap">
+                <span id="pill-ceo" class="agent-pill waiting px-3 py-1.5 bg-gray-800/50 rounded-full text-xs font-medium">👔 CEO</span>
+                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span id="pill-product" class="agent-pill waiting px-3 py-1.5 bg-gray-800/50 rounded-full text-xs font-medium">📦 Product</span>
+                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span id="pill-branding" class="agent-pill waiting px-3 py-1.5 bg-gray-800/50 rounded-full text-xs font-medium">🎨 Brand</span>
+                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span id="pill-engineer" class="agent-pill waiting px-3 py-1.5 bg-gray-800/50 rounded-full text-xs font-medium">⚙️ Tech</span>
+                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span id="pill-finance" class="agent-pill waiting px-3 py-1.5 bg-gray-800/50 rounded-full text-xs font-medium">💰 Finance</span>
+                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span id="pill-pitch" class="agent-pill waiting px-3 py-1.5 bg-gray-800/50 rounded-full text-xs font-medium">🎯 Pitch</span>
+            </div>
+        </header>
+        
+        <!-- Welcome Screen -->
+        <div id="welcomeScreen" class="flex-1 flex flex-col items-center justify-center px-6">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-4xl mb-6 shadow-lg shadow-green-500/20">🚀</div>
+            <h2 class="text-3xl font-bold mb-2">What startup will you build?</h2>
+            <p class="text-gray-400 mb-8 text-center max-w-md">Enter your idea and watch 6 AI agents collaborate to create your business plan, branding, landing page, financials, and pitch deck.</p>
+            
+            <div class="grid grid-cols-2 gap-3 max-w-2xl w-full mb-8">
+                <button onclick="useExample('An app that connects dog owners with trusted local dog walkers')" class="p-4 rounded-xl border border-gray-800 hover:border-green-500/50 hover:bg-green-500/5 transition text-left">
+                    <p class="text-sm font-medium mb-1">🐕 Pet Services</p>
+                    <p class="text-xs text-gray-500">Dog walking marketplace</p>
+                </button>
+                <button onclick="useExample('AI tool that generates SOC 2 compliance docs by scanning codebases')" class="p-4 rounded-xl border border-gray-800 hover:border-green-500/50 hover:bg-green-500/5 transition text-left">
+                    <p class="text-sm font-medium mb-1">🔒 B2B SaaS</p>
+                    <p class="text-xs text-gray-500">Compliance automation</p>
+                </button>
+                <button onclick="useExample('Platform where home cooks sell homemade meals to busy professionals')" class="p-4 rounded-xl border border-gray-800 hover:border-green-500/50 hover:bg-green-500/5 transition text-left">
+                    <p class="text-sm font-medium mb-1">🍳 Food Tech</p>
+                    <p class="text-xs text-gray-500">Homemade meal marketplace</p>
+                </button>
+                <button onclick="useExample('Marketplace for AI-generated custom phone wallpapers, $1 per pack')" class="p-4 rounded-xl border border-gray-800 hover:border-green-500/50 hover:bg-green-500/5 transition text-left">
+                    <p class="text-sm font-medium mb-1">🎨 Creator Economy</p>
+                    <p class="text-xs text-gray-500">AI wallpaper store</p>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Chat Area -->
+        <div id="chatArea" class="hidden flex-1 overflow-y-auto px-6 py-6">
+            <div id="userIdea" class="hidden max-w-4xl mx-auto mb-6 message-in">
+                <div class="flex gap-4">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-sm font-bold shrink-0">U</div>
+                    <div class="flex-1 pt-1">
+                        <p id="userIdeaText" class="text-gray-100"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="chatStream" class="max-w-4xl mx-auto space-y-6"></div>
+        </div>
+        
+        <!-- Tabs -->
+        <div id="tabsContainer" class="hidden border-t border-gray-800 bg-[#0d1320]">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="flex gap-1 py-2">
+                    <button onclick="showTab('chat')" id="tab-chat" class="tab-btn active px-4 py-2 text-sm rounded-lg border border-transparent transition">💬 Chat</button>
+                    <button onclick="showTab('landing')" id="tab-landing" class="tab-btn px-4 py-2 text-sm rounded-lg border border-transparent transition">🌐 Landing Page</button>
+                    <button onclick="showTab('pitch')" id="tab-pitch" class="tab-btn px-4 py-2 text-sm rounded-lg border border-transparent transition">🎯 Pitch Deck</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Landing Page View -->
+        <div id="view-landing" class="hidden flex-1 flex flex-col">
+            <div class="flex gap-2 p-4 border-b border-gray-800 bg-[#0d1320]">
+                <button onclick="showLandingPreview()" id="btn-preview" class="px-4 py-2 bg-gray-800 rounded-lg text-sm hover:bg-gray-700 transition">Preview</button>
+                <button onclick="showLandingCode()" id="btn-code" class="px-4 py-2 bg-gray-800 rounded-lg text-sm hover:bg-gray-700 transition">Code</button>
+                <button onclick="downloadLanding()" class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg text-sm transition ml-auto">⬇ Download HTML</button>
+            </div>
+            <iframe id="landingPreview" class="flex-1 bg-white"></iframe>
+            <pre id="landingCode" class="hidden flex-1 overflow-auto p-4 m-0 bg-[#0d1117]"><code class="language-html text-sm"></code></pre>
+        </div>
+        
+        <!-- Pitch Deck View -->
+        <div id="view-pitch" class="hidden flex-1 overflow-y-auto p-6 bg-[#080c14]">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold mb-2">📊 Investor Pitch Deck</h2>
+                    <p class="text-gray-400 text-sm">10-slide presentation ready for investors</p>
+                </div>
+                <div id="pitchContent" class="pitch-slides"></div>
+            </div>
+        </div>
+        
+        <!-- Input Area -->
+        <div class="border-t border-gray-800 p-4 bg-[#0d1320]">
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <textarea 
+                        id="ideaInput" 
+                        class="w-full bg-[#1a2332] rounded-2xl px-5 py-4 pr-14 text-gray-100 border border-gray-700 focus:border-green-500 focus:outline-none input-glow resize-none placeholder-gray-500 transition"
+                        rows="1"
+                        placeholder="Describe your startup idea..."
+                        onkeydown="handleKeydown(event)"
+                        oninput="autoResize(this)"
+                    ></textarea>
+                    <button 
+                        id="generateBtn"
+                        onclick="generate()"
+                        class="absolute right-3 bottom-3 w-10 h-10 bg-green-600 hover:bg-green-700 rounded-xl flex items-center justify-center transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <svg id="sendIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg id="loadingIcon" class="hidden w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    </button>
+                </div>
+                <p class="text-xs text-gray-500 mt-2 text-center">Press Enter to send • Shift+Enter for new line</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
