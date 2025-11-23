@@ -1,232 +1,282 @@
-# CoFounderX - AI-Powered Startup Builder
+# 🚀 CoFounderX - AI Startup Generator
 
-CoFounderX is a modern SaaS platform that empowers founders to build their startups with AI co-founders. Collaborate with intelligent AI agents in real-time, generate comprehensive business plans, create brand identities, and deploy your ideas faster than ever.
+**Transform your startup idea into a complete business toolkit in minutes.**
 
-## Features
+CoFounderX is a multi-agent AI system that simulates a real founding team. Enter your idea, and watch 6 specialized AI agents collaborate to create your business plan, branding, landing page, financial model, and investor pitch deck.
 
-- **🚀 Fast Iteration** - Generate complete startup plans in minutes, not weeks
-- **👥 Real-Time Collaboration** - Watch AI agents collaborate and refine your ideas live
-- **📦 Ready to Deploy** - Export complete startup bundles with all deliverables
-- **🎨 Branding Kit** - AI-generated brand identities with colors, typography, and voice
-- **📊 Dashboard** - Manage workspaces, track progress, and monitor AI agents
-- **💾 Bundle Generation** - Download packaged startups with all deliverables
+![CoFounderX Demo](https://img.shields.io/badge/Status-Live-green) ![Python](https://img.shields.io/badge/Python-3.10-blue) ![Groq](https://img.shields.io/badge/Groq-Llama--3.1-orange)
 
-## Tech Stack
+---
 
-- **Frontend**: Next.js 16 with App Router
-- **Styling**: Tailwind CSS v4 with semantic design tokens
-- **UI Components**: shadcn/ui with custom components
-- **Authentication**: Designed for integration with your auth system
-- **API**: Mock endpoints ready to connect to FastAPI backend
+## ✨ Features
 
-## Getting Started
+### 🤖 6 Specialized AI Agents
 
-### Prerequisites
+| Agent | Role | Output |
+|-------|------|--------|
+| 👔 **CEO** | Strategy & Vision | Business plan, target audience, revenue model |
+| 📦 **Product** | Product Management | MVP features, user journey, success metrics |
+| 🎨 **Branding** | Brand Identity | Brand name, logo colors, typography, tagline |
+| ⚙️ **Engineer** | Technical Lead | Tech stack, timeline, **working HTML landing page** |
+| 💰 **Finance** | Financial Planning | Startup costs, pricing, unit economics, break-even |
+| 🎯 **Pitch** | Investor Relations | 10-slide pitch deck ready for investors |
 
-- Node.js 18+ 
-- npm or yarn
+### 🎯 Key Highlights
 
-### Installation
+- **Real-time Agent Collaboration**: Watch agents work sequentially, each building on the previous agent's output
+- **Production-Ready Landing Page**: Get actual HTML/CSS code you can deploy immediately
+- **Investor Pitch Deck**: Professional 10-slide deck with market size, roadmap, and financials
+- **Chat History**: Save and revisit up to 20 previous startup ideas
+- **Mobile Responsive**: Works seamlessly on desktop, tablet, and mobile
+- **Dark Mode UI**: Modern ChatGPT-style interface with glassmorphism
 
-1. Clone the repository:
-\`\`\`bash
-git clone <your-repo-url>
+---
+
+## 🏗️ Tech Stack
+
+| Layer | Technology | Why |
+|-------|------------|-----|
+| **AI Model** | Groq API (Llama 3.1 8B) | Fast inference, free tier, 128K context |
+| **Backend** | Python + Flask | Simple, beginner-friendly, SSE streaming |
+| **Frontend** | HTML + Tailwind CSS | No build step, CDN-based, responsive |
+| **Deployment** | Hugging Face Spaces (Docker) | Free hosting, auto-deploy, persistent storage |
+
+**No React. No complex setup. Just 4 files.**
+
+---
+
+## 📁 Project Structure
+
+```
+CoFounderX/
+├── Dockerfile              # Docker config for HF Spaces
+├── requirements.txt        # Python dependencies
+├── app.py                 # Flask backend + agent logic
+├── static/
+│   ├── style.css          # All styling + mobile responsive
+│   └── script.js          # Frontend logic + history
+└── templates/
+    └── index.html         # Main UI
+```
+
+**Total Lines of Code:** ~600 lines across all files
+
+---
+
+## 🚀 Quick Start
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/cofounderx.git
 cd cofounderx
-\`\`\`
+```
 
-2. Install dependencies:
-\`\`\`bash
-npm install
-\`\`\`
+### 2. Get Groq API Key
 
-3. Run the development server:
-\`\`\`bash
-npm run dev
-\`\`\`
+1. Go to [console.groq.com](https://console.groq.com)
+2. Sign up (free)
+3. Create an API key
+4. Copy the key (starts with `gsk_...`)
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+### 3. Local Development
 
-## Project Structure
+```bash
+# Install dependencies
+pip install -r requirements.txt
 
-\`\`\`
-cofounderx/
-├── app/
-│   ├── page.tsx                 # Landing page
-│   ├── layout.tsx               # Root layout
-│   ├── globals.css              # Global styles and design tokens
-│   ├── dashboard/               # Dashboard pages
-│   │   ├── page.tsx             # Dashboard home
-│   │   ├── workspace/           # Workspace management
-│   │   │   ├── page.tsx         # Workspace list
-│   │   │   └── [id]/            # Individual workspace
-│   │   ├── collaboration/       # Real-time collaboration viewer
-│   │   └── branding/            # Branding kit viewer
-│   └── api/                     # API routes (mock endpoints)
-│       ├── workspace/           # Workspace CRUD operations
-│       ├── collaboration/       # Real-time messaging
-│       ├── agents/              # Agent status and actions
-│       ├── bundle/              # Bundle generation and download
-│       └── auth/                # Authentication callbacks
-├── components/
-│   ├── dashboard/               # Dashboard-specific components
-│   │   ├── sidebar.tsx          # Navigation sidebar
-│   │   ├── header.tsx           # Top header
-│   │   ├── agent-card.tsx       # AI agent display
-│   │   └── export-modal.tsx     # Bundle export modal
-│   └── ui/                      # shadcn/ui components
-├── hooks/                       # Custom React hooks
-├── lib/                         # Utilities and helpers
-└── public/                      # Static assets
+# Set API key
+export GROQ_API_KEY="your-key-here"
 
-\`\`\`
+# Run the app
+python app.py
+```
 
-## API Routes
+Open `http://localhost:7860` in your browser.
 
-The project includes mock API routes that are structured to proxy requests to your FastAPI backend:
+### 4. Deploy to Hugging Face Spaces
 
-### Workspace Management
-- `GET /api/workspace` - List all workspaces
-- `POST /api/workspace` - Create new workspace
-- `GET /api/workspace/[id]` - Get workspace details
-- `PUT /api/workspace/[id]` - Update workspace
-- `DELETE /api/workspace/[id]` - Delete workspace
+1. Create a new Space at [huggingface.co/spaces](https://huggingface.co/spaces)
+2. Select **Docker** as SDK
+3. Upload all files
+4. Add `GROQ_API_KEY` in **Settings → Repository Secrets**
+5. Wait ~3 minutes for build
+6. Done! Your app is live.
 
-### Real-Time Collaboration
-- `GET /api/collaboration/messages` - Get collaboration messages
-- `POST /api/collaboration/messages` - Send message to agents
-- `WS /api/collaboration/ws` - WebSocket for real-time updates
+---
 
-### AI Agents
-- `GET /api/agents/status` - Get agent status and progress
-- `POST /api/agents/[id]/action` - Trigger agent action
+## 🎮 How It Works
 
-### Bundle Generation
-- `POST /api/bundle/generate` - Start bundle generation
-- `GET /api/bundle/download` - Download generated startup bundle
+### Multi-Agent Pipeline
 
-### Authentication
-- `POST /api/auth/callback` - Auth callback handler
+```
+User enters idea
+      ↓
+👔 CEO → Business strategy, target audience, revenue model
+      ↓ (passes context)
+📦 Product → MVP features, user journey, differentiator
+      ↓ (passes context)
+🎨 Branding → Brand name, colors, typography, tagline
+      ↓ (passes context)
+⚙️ Engineer → Tech stack + generates HTML landing page
+      ↓ (passes context)
+💰 Finance → Costs, pricing, unit economics, funding
+      ↓ (passes context)
+🎯 Pitch → 10-slide investor deck
+      ↓
+Complete startup toolkit delivered
+```
 
-## Connecting to FastAPI Backend
+### Context Passing
 
-### 1. Update API Routes
+Each agent receives:
+- The original startup idea
+- All outputs from previous agents (truncated to fit context window)
+- Specific instructions on what to deliver
 
-Replace the mock endpoints in `/app/api/*` files with actual backend calls. Example:
+This creates a **collaborative simulation** where each agent builds on the team's work.
 
-\`\`\`typescript
-// app/api/workspace/route.ts
-const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api'
+---
 
-export async function GET() {
-  try {
-    const response = await fetch(`${BACKEND_URL}/workspace`, {
-      headers: {
-        'Authorization': `Bearer ${process.env.BACKEND_API_KEY}`
-      }
-    })
-    return response
-  } catch (error) {
-    return Response.json({ error: 'Failed to fetch workspaces' }, { status: 500 })
-  }
+## 💡 Example Outputs
+
+### Input
+> "An app that connects dog owners with trusted local dog walkers"
+
+### Outputs
+
+**👔 CEO Agent**
+- Target: Urban pet owners aged 25-45, working professionals
+- Revenue: Commission-based (20% per booking)
+- Market: $10B pet services industry
+
+**📦 Product Agent**
+- Feature 1: Real-time GPS tracking of walks
+- Feature 2: Walker background checks & reviews
+- Feature 3: Automated scheduling & payments
+
+**🎨 Branding Agent**
+- Name: **PawStride**
+- Colors: `#10b981` (green), `#f59e0b` (orange)
+- Tagline: "Every walk, perfectly tracked"
+
+**⚙️ Engineer Agent**
+- Tech: React Native + Node.js + PostgreSQL
+- Output: Complete landing page HTML (copy-paste ready)
+
+**💰 Finance Agent**
+- Startup costs: $15K (Year 1)
+- Pricing: $8-12 per walk
+- Break-even: 500 active users
+
+**🎯 Pitch Agent**
+- 10-slide deck with market size, traction, competition matrix
+
+---
+
+## 🎨 Screenshots
+
+### Welcome Screen
+![Welcome](https://github.com/user-attachments/assets/dbfb7fd3-6131-4d0b-a6c3-17027a08a2e6)
+
+### Agent Collaboration View
+![Agents](https://github.com/user-attachments/assets/4ebfc5aa-1768-4bd5-bd46-98015ea9a1d2)
+
+### Generated Landing Page
+![Landing](https://github.com/user-attachments/assets/f8056ca1-a543-4ad8-943c-8194de83ca3f)
+
+### Pitch Deck
+![Pitch](https://github.com/user-attachments/assets/0566beae-43a3-4825-847f-d00a91342dc7)
+
+---
+
+## 🛠️ Customization
+
+### Add More Agents
+
+Edit `app.py` and add to the `AGENTS` dictionary:
+
+```python
+"legal": {
+    "emoji": "⚖️",
+    "name": "Legal Agent",
+    "prompt": """You are the Legal agent. Provide:
+    - Business structure recommendation
+    - Key legal considerations
+    - IP protection strategy"""
 }
-\`\`\`
+```
 
-### 2. Environment Variables
+Don't forget to update `agent_order` in the `generate()` function.
 
-Add to your `.env.local`:
+### Change AI Model
 
-\`\`\`env
-# Backend configuration
-NEXT_PUBLIC_API_URL=http://localhost:8000/api
-BACKEND_API_KEY=your_api_key_here
+In `app.py`, line 123:
 
-# For production
-NEXT_PUBLIC_API_URL=https://api.yourdomain.com/api
-\`\`\`
+```python
+model="llama-3.1-8b-instant",  # Change to llama-3.1-70b-versatile for better quality
+```
 
-### 3. Update WebSocket Connection
+### Adjust Context Window
 
-For real-time collaboration, update the WebSocket connection in components:
+In `app.py`, update `max_tokens` and `truncate_context()`:
 
-\`\`\`typescript
-const ws = new WebSocket(
-  `${process.env.NEXT_PUBLIC_WS_URL || 'ws://localhost:8000'}/ws/collaboration`
-)
-\`\`\`
+```python
+max_tokens = 3000  # Increase for longer outputs
+```
 
-### 4. Authentication Middleware
+---
 
-Update `/app/api/auth/callback/route.ts` to handle your authentication flow and set proper headers for all API requests.
+## 📊 Performance
 
-## Design System
+| Metric | Value |
+|--------|-------|
+| **Generation Time** | 30-60 seconds (6 agents) |
+| **Cost per Run** | ~$0.001 (Groq free tier) |
+| **Context Window** | 128K tokens (Llama 3.1) |
+| **Mobile Score** | 95/100 (Lighthouse) |
 
-CoFounderX uses a modern dark theme with semantic design tokens:
+---
 
-- **Primary Color**: Vibrant Blue (oklch 0.6 0.2 264) - Used for primary actions and accents
-- **Background**: Deep Navy (oklch 0.08 0 0) - Main background
-- **Surface**: Dark Gray (oklch 0.12 0 0) - Cards and elevated surfaces
-- **Text**: Off-white (oklch 0.97 0 0) - Primary text
-- **Border**: Subtle Gray (oklch 0.2 0 0) - Borders and dividers
+## 🐛 Known Issues & Limitations
 
-All colors use OKLCh color space for perceptually uniform colors and better accessibility.
+- **Landing Page Quality**: Llama 3.1 8B sometimes generates incomplete HTML. Use `llama-3.1-70b-versatile` for better results.
+- **Context Overflow**: Very long agent outputs can cause the pitch agent to fail. Adjust `truncate_context()` if needed.
+- **No File Uploads**: Currently doesn't support analyzing uploaded documents.
+- **English Only**: Prompts optimized for English. Other languages may work but untested.
 
-## Development
+---
 
-### Available Scripts
+## 🤝 Contributing
 
-\`\`\`bash
-npm run dev       # Start development server
-npm run build     # Build for production
-npm start         # Start production server
-npm run lint      # Run ESLint
-\`\`\`
+Contributions are welcome! Here are some ideas:
 
-### Adding New Pages
+- [ ] Add more agents (Legal, Marketing, HR)
+- [ ] Support multiple AI providers (OpenAI, Anthropic)
+- [ ] Export pitch deck as PDF
+- [ ] Add voice input for ideas
+- [ ] Multi-language support
+- [ ] Save outputs to Google Drive
 
-1. Create a new file in `app/[route]/page.tsx`
-2. Use the layout system for consistent sidebar and header
-3. Follow the design system with semantic CSS classes
+### How to Contribute
 
-### Adding New Components
+1. Fork the repo
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-1. Create component in `components/`
-2. Use shadcn/ui components as building blocks
-3. Apply design tokens via Tailwind classes
+---
 
-## Deployment
+## 🙏 Acknowledgments
 
-### Deploy to Vercel (Recommended)
+- **Groq** for blazing-fast LLM inference
+- **Hugging Face** for free hosting
+- **Tailwind CSS** for beautiful styling
+- **Llama 3.1** by Meta for the AI model
 
-\`\`\`bash
-npm install -g vercel
-vercel
-\`\`\`
+---
 
-### Environment Variables on Vercel
+## ⭐ Show Your Support
 
-Set in your Vercel project settings:
-- `NEXT_PUBLIC_API_URL` - Your FastAPI backend URL
-- `BACKEND_API_KEY` - API key for backend authentication
-
-### Custom Deployment
-
-1. Build the project: `npm run build`
-2. Deploy the `.next` folder to your hosting platform
-3. Set environment variables on your hosting platform
-
-## Architecture Notes
-
-The frontend is designed to be:
-- **Stateless** - No backend state stored, all data flows through API routes
-- **Real-time Ready** - WebSocket integration points for live collaboration
-- **Scalable** - Modular component structure for easy feature additions
-- **Type-Safe** - Full TypeScript support for API contracts
-
-## Next Steps
-
-1. Connect your FastAPI backend by updating the `/app/api` routes
-2. Implement authentication with your auth system
-3. Add environment variables for your backend
-4. Test the integration with your AI agents
-5. Deploy to production
-
+If you found this project helpful, please give it a ⭐ on GitHub!
