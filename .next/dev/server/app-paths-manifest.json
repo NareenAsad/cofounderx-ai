@@ -1,6 +1,0 @@
-{
-  "/dashboard/collaboration/page": "app/dashboard/collaboration/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/dashboard/workspace/page": "app/dashboard/workspace/page.js",
-  "/page": "app/page.js"
-}
